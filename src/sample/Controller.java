@@ -94,7 +94,7 @@ public class Controller implements Initializable{
                     Connection conn = DriverManager.getConnection("jdbc:sqlite:Cards.db");
                     Statement cards = conn.createStatement();
                   //  ResultSet selectedCard = cards.executeQuery("SELECT * FROM Cards WHERE Type != 'Leader'");
-                    ResultSet selectedCard = cards.executeQuery("SELECT Image FROM Cards WHERE Name = " + "'" + t1 + "'");
+                    ResultSet selectedCard = cards.executeQuery("SELECT Image FROM Cards WHERE Name = " + '"' + t1 + '"');
 
 
                     //            while (selectedCard.next()){

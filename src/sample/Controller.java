@@ -2,6 +2,8 @@ package sample;
 
 import javafx.application.Application;
 import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -30,6 +32,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.jar.Attributes;
 
 public class Controller implements Initializable{
 
@@ -79,10 +82,41 @@ public class Controller implements Initializable{
             System.out.println("Mistakes were made: " + e.getMessage());
         }
 
-
-
         CardChoices.setItems(CardOptions);
         LeaderChoices.setItems(LeaderOptions);
+
+        CardChoices.valueProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+
+                System.out.println(t1);
+                try{
+                    Connection conn = DriverManager.getConnection("jdbc:sqlite:Cards.db");
+                    Statement cards = conn.createStatement();
+                  //  ResultSet selectedCard = cards.executeQuery("SELECT * FROM Cards WHERE Type != 'Leader'");
+                    ResultSet selectedCard = cards.executeQuery("SELECT Image FROM Cards WHERE Name = " + "'" + t1 + "'");
+
+
+                    //            while (selectedCard.next()){
+       //                 if(selectedCard.getString("Name") == t1){
+
+          //              }
+           //                 ;}
+
+                    String cardImageLoc = selectedCard.getString("Image");
+                    cardImageLoc = "C:/Users/Anthony/IdeaProjects/DBS-DeckManager/src/sample" + cardImageLoc;
+                    System.out.println(cardImageLoc);
+                    FileInputStream cardImageInput = new FileInputStream(cardImageLoc);
+                    Image theCardImage = new Image(cardImageInput);
+                    cardImage.setImage(theCardImage);
+
+                }
+                catch(SQLException | FileNotFoundException e){System.out.println(e);}
+
+
+            }
+        });
+
     }
 
     @FXML
@@ -111,6 +145,8 @@ public class Controller implements Initializable{
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Dragonball Super Card Game Deck Manager");
         primaryStage.setScene(new Scene(root, 800, 600));
+        Image icon = new Image(getClass().getResourceAsStream("Icon.jpg"));
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
     }
 
@@ -141,6 +177,8 @@ public class Controller implements Initializable{
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Dragonball Super Card Game Deck Manager");
         primaryStage.setScene(new Scene(root, 800, 600));
+        Image icon = new Image(getClass().getResourceAsStream("Icon.jpg"));
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
 
     }
@@ -152,6 +190,8 @@ public class Controller implements Initializable{
         Stage primaryStage = new Stage();
         primaryStage.setTitle("Dragonball Super Card Game Deck Manager");
         primaryStage.setScene(new Scene(root, 800, 600));
+        Image icon = new Image(getClass().getResourceAsStream("Icon.jpg"));
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
 
     }

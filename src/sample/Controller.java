@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -50,6 +51,8 @@ public class Controller implements Initializable {
     public ImageView deckImage2 = new ImageView();
     public ImageView deckImage3 = new ImageView();
     public ImageView deckImage4 = new ImageView();
+
+    public TextField textInput = new TextField();
     
     public Stage primaryStage = new Stage();
 
@@ -370,6 +373,24 @@ public class Controller implements Initializable {
             catch (SQLException e) {
 
                 System.out.println(e); }
+
+    }
+
+    @FXML
+    private void addDeckAction(){
+
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:sqlite:Cards.db");
+            Statement deck = conn.createStatement();
+            
+            deck.executeUpdate("INSERT INTO Decks (Name) VALUES ('" + textInput.getText() + "')");}
+
+
+        catch (SQLException e) {
+
+            System.out.println(e); }
+
+
 
     }
 

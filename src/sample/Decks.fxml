@@ -20,6 +20,7 @@
             <BorderPane.margin>
                 <Insets right="10.0" top="10" />
             </BorderPane.margin>
+            <TextField fx:id="textInput"></TextField>
             <ComboBox fx:id="DeckChoices" prefWidth="150.0" BorderPane.alignment="CENTER">
 
                 <items>
@@ -49,9 +50,8 @@
                     </FXCollections>
                 </items>
             </ComboBox>
-            <Button id="DeleteDeck" onAction="#deleteDeckAction" mnemonicParsing="false" text="Delete Deck" BorderPane.alignment="BOTTOM_CENTER" />
-            <Button id="BackButton" onAction="#backButtonAction" mnemonicParsing="false" text="Back" BorderPane.alignment="BOTTOM_RIGHT" />
-
+            <Button fx:id="DeleteDeck" onAction="#deleteDeckAction" mnemonicParsing="false" text="Delete Deck" BorderPane.alignment="BOTTOM_CENTER" />
+            <Button fx:id="BackButton" onAction="#backButtonAction" mnemonicParsing="false" text="Back" BorderPane.alignment="BOTTOM_RIGHT" />
         </HBox>
     </right>
 
@@ -84,7 +84,7 @@
                     <Insets left="145.0" top="170.0" />
                 </BorderPane.margin>
             </ImageView>
-
+            <Button fx:id="addDeckButton" onAction="#addDeckAction" mnemonicParsing="false" text="Add Deck" BorderPane.alignment="BOTTOM_RIGHT" />
         </VBox>
 
 

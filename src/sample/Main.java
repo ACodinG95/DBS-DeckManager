@@ -9,12 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BackgroundPosition;
 import javafx.stage.Stage;
+import javafx.scene.layout.BackgroundImage;
 
 import java.sql.*;
 
 public class Main extends Application {
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -22,12 +23,13 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
         primaryStage.setTitle("Dragonball Super Card Game Deck Manager");
         primaryStage.setScene(new Scene(root, 800, 600));
+
         Image icon = new Image(getClass().getResourceAsStream("Icon.jpg"));
+       // BackgroundImage theBackground = new BackgroundImage(icon,true,true,null,null);
         primaryStage.getIcons().add(icon);
         primaryStage.show();
 
     }
-
 
     public static void main(String[] args) {
 

@@ -7,12 +7,12 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" style="-fx-background-color: black;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <BorderPane />
         <VBox alignment="CENTER" layoutX="336.0" layoutY="222.0" prefHeight="156.0" prefWidth="129.0" spacing="5">
 
-            <Button fx:id="DecksButton" prefWidth="80" text="Decks" GridPane.rowIndex="0" />
+            <Button fx:id="DecksButton" onAction="#openDecks" prefWidth="80" text="Decks" GridPane.rowIndex="0" />
             <Button fx:id="LeaderListButton" onAction="#openLeaderList" prefWidth="80" text="Leader List" GridPane.rowIndex="1" />
             <Button fx:id="CardListButton" onAction="#openCardList" prefWidth="80" text="Card List" GridPane.rowIndex="2" />
             <Button fx:id="closeButton" onAction="#closeButtonAction" prefWidth="80" text="Exit" GridPane.rowIndex="3" />

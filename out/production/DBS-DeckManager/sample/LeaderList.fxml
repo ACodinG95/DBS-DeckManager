@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <?import javafx.scene.image.Image?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <padding>
         <Insets bottom="260.0" />
     </padding>
@@ -30,8 +30,10 @@
         </ComboBox>
     </right>
     <left>
-        <ImageView fx:id="leaderImage" fitHeight="380.0" fitWidth="200.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-
+        <ImageView fx:id="leaderImage" fitHeight="380.0" fitWidth="400.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+            <BorderPane.margin>
+                <Insets left="45.0" top="70.0" />
+            </BorderPane.margin>
         </ImageView>
 
 

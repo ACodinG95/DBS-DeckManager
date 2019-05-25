@@ -8,9 +8,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.shape.Box?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <padding>
         <Insets bottom="260.0" />
@@ -22,13 +25,8 @@
             </BorderPane.margin>
             <TextField fx:id="textInput"></TextField>
             <ComboBox fx:id="DeckChoices" prefWidth="150.0" BorderPane.alignment="CENTER">
-
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Option 1" />
-                        <String fx:value="Option 2" />
-                        <String fx:value="Option 3" />
-                        <String fx:value="Option 4" />
                     </FXCollections>
                 </items>
             </ComboBox>
@@ -61,7 +59,7 @@
 
         <VBox>
             <BorderPane.margin>
-                <Insets left="10.0" top="60" />
+                <Insets left="10.0" top="100" />
             </BorderPane.margin>
             <ImageView fx:id="deckImage1" fitWidth="80.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                 <BorderPane.margin>
